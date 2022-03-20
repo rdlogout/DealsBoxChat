@@ -2,7 +2,6 @@ import { HubConnectionBuilder } from "@microsoft/signalr";
 import axios from "axios";
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import MainContent from "../mainContent";
 import SideBar from "../sideBar";
 
 const ChatLayout = ({ children }) => {

@@ -1,9 +1,7 @@
 import ChatLayout from "../components/layouts/ChatLayout";
 import MainContent from "../components/mainContent";
 
-
-const Index=()=>{
-
+const Index = () => {
   return (
     <>
       <ChatLayout>
@@ -29,6 +27,5 @@ const Index=()=>{
       </ChatLayout>
     </>
   );
-
-}
+};
 export default Index;

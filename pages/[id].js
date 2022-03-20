@@ -18,7 +18,7 @@ const ChatById = ({ router }) => {
     setConnection(connect);
     setUserData(window.userData);
   }, []);
-    
+
   useEffect(() => {
     if (connection) {
       connection.start().catch((error) => console.log(error));
@@ -27,7 +27,7 @@ const ChatById = ({ router }) => {
 
   return (
     <>
-      <MainContent col='12' style={{height:'100vh'}}>
+      <MainContent col="12" style={{ height: "100vh" }}>
         <ChatBox
           userData={userData}
           connection={connection}
