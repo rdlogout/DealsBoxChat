@@ -1,0 +1,45 @@
+
+
+.sideBar{
+    .profile-picture{
+        div[role='button']{
+            position: absolute;
+            right: 10%;
+            bottom: 10%;
+        }
+    }
+    .return-home{
+        button{
+            background-color: #0a2472a8 !important;
+        }
+    }
+    .search-box{
+        padding: 15px 20px;
+            border-radius: 15px;
+            background-color: #EDF0F4;
+            margin: 30px 0;
+        input{
+            flex-grow: 1;
+            background-color: transparent;
+            border:0;
+            &:focus{
+                outline: none;
+            }
+            &::placeholder{
+                letter-spacing: .4px;
+                color: rgba(1,1,1,.6);
+            }
+        }
+        svg{
+            color:rgba(1,1,1,.6);
+        }
+    }
+    .chat-list{
+        border-radius: 10px;
+        cursor: pointer;
+        &:hover{
+            background-color: #f7f7f7;
+
+        }
+    }
+}

@@ -1,0 +1,23 @@
+$theme-colors: (
+  "primary": #666af6,
+  "secondary": #607196,
+  "blue": #094d92,
+  "success": #50C5B7,
+  "info": #ff7d50,
+  "white": #ffffff,
+  "warning": #ffbe0b,
+  "danger": #df542e,
+  "light": #f8f8f8,
+  "dark": #001738,
+  "grey": #9b9b9b,
+);
+
+@import "/node_modules/bootstrap/scss/bootstrap.scss";
+@import "./sideBar.scss";
+@import "./utility.scss";
+@import "./mainContent.scss";
+@import "./chatInput.scss";
+@import "./chatLayout.scss";
+body {
+  color: #999;
+}

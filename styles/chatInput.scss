@@ -1,0 +1,108 @@
+.chat-inputbox{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #edf0f467;
+    backdrop-filter: blur(5px);
+    padding: 15px 20px;
+
+    .content{
+        display: flex;
+        background-color: #fff;
+        padding: 7px;
+        border-radius: 12px;
+        box-shadow: 0px 0px 10px 8px rgba(1,1,1,.01);
+        align-items: center;
+        input{
+            border:0;
+            flex-grow:1;
+            color: #666;
+            font-size: 14px;
+            &::placeholder{
+                font-size: 12px;
+                color: #999;
+            }
+            &:focus{
+                outline:0;
+            }
+            padding: 10px 12px;
+        }
+        .dropdown-toggle{
+            background-color: transparent;
+            padding: 0;
+            border:0;
+            color: unset;
+            box-shadow: none !important;
+            &::after{
+                display: none;
+            }
+            margin-right: 15px;
+            svg{
+                color: #666;
+                font-size: 16px;
+            }
+        }
+        .send-btn{
+            button{
+                display: flex;
+                border:0;
+                border-radius: 10px;
+                padding: 10px 11px;
+                background-color: #50C5B7;
+                margin-left: 10px;
+                svg{
+                    color: #fff;
+                    font-size: 17px;
+                }
+            }
+        }
+        .emoji-menu{
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    }
+
+    .message-upload{
+        border-radius: 10px;
+        background-color: #fff;
+        padding: 8px 10px;
+        width: 100%;
+        margin-bottom: 10px;
+        font-size: 12px;
+        color: #999;
+        *{
+            margin-bottom: 0 !important;
+        }
+        div[role='button']{
+            font-size: 16px;
+            margin-left: 10px;
+            border-radius: 50%;
+            padding: 2px 4px;
+            text-align: center;
+            line-height: unset;
+            vertical-align: middle;
+            background-color: rgba(184, 247, 247, 0.568);
+        }
+        .close{
+            background-color: rgba(255, 102, 0, 0.315) !important;
+            font-size: 13px !important;
+            color: red;
+            margin-left: 10px;
+        }
+        .completed{
+            background-color: #50c5b76e;
+            font-size: 13px !important;
+        }
+        
+
+
+        .progress{
+            height: 4px;
+            background-color: #f7f7f7;
+            .progress-bar{
+                background-color: #50C5B7;
+            }
+        }
+    }
+}
+

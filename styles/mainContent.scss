@@ -1,0 +1,89 @@
+.main-content{
+    background-color: #EDF0F4;
+    position: relative;
+    height: 95vh;
+}
+
+.chat-title{
+    position: relative;
+    backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.5);
+    z-index: 10;
+}
+.chat-box{
+    position: relative;
+    height: 100%;
+    .messages-list{
+        position: absolute;
+        top: 0;
+        height: calc(100%);
+        overflow-y: auto;
+        width: 100%;
+        padding: 95px 20px;
+    }
+}
+
+///////////////////////Chat Message////////////////
+.chat-message{
+    max-width: 65%;
+    margin-bottom: 15px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    .user-image{
+        img{
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+        }
+    }
+    .message-time{
+        color: #666;
+        margin-bottom: 5px !important;
+    }
+    .message-box{
+        border-radius: 13px;
+        color: #666;
+        font-size: 13px;
+        padding: 13px 16px;
+        background-color: #fff;
+        border-bottom-left-radius: 0;
+        box-shadow: 1px 1px 1px 0px rgba(1,1,1,.1);
+    }
+
+    .message-media{
+        border-radius: 8px;
+        background-color: #fff;
+        border:1px solid rgba(1,1,1,.1);
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        .media{
+            flex-grow: 1;
+            padding: 10px;
+        }
+        .download-btn{
+            height: 100%;
+            padding: 10px;
+            border-left: 1px solid rgba(1,1,1,.1);
+        }
+    }
+}
+.chat-message.message-out{
+    align-self: flex-end;
+    .user-image{
+        display: none;
+    }
+    .message-box{
+        border-bottom-left-radius: 13px;
+        border-bottom-right-radius: 0;
+        background-color: #B2B9C5;
+        color: #333;
+
+    }
+}
+
+
+/////////////////////Chat Input Box//////////////////
+
+
