@@ -1,31 +1,32 @@
-import ChatLayout from "../components/layouts/ChatLayout";
-import MainContent from "../components/mainContent";
+import { connect } from 'react-redux'
+import { incrementCounter, decrementCounter } from '../redux/action/counter/creator'
 
-const Index = () => {
-  return (
-    <>
-      <ChatLayout>
-        <MainContent>
-          <div className="row m-5 h-100 align-items-center">
-            <div className="col-md-6">
-              <h1 className="fs-3 fw-bolder mb-4 text-dark text-center">
-                Just A Click Away To Make Connection With New People
-              </h1>
-              <p className="text-center px-4 ">
-                Select from the recent chats in the sidebar to chat with them
-              </p>
-            </div>
-            <div className="col-md-6">
-              <img
-                className="w-100"
-                src="https://cdn3d.iconscout.com/3d/premium/thumb/no-message-3025708-2526906.png"
-              />
-            </div>
-            <div className="col-md-5 my-5 mx-auto"></div>
-          </div>
-        </MainContent>
-      </ChatLayout>
-    </>
-  );
-};
-export default Index;
+const Home = (props) => {
+	return (
+		<>
+			<div className='container mt-4'>
+				<h2 className='text-center'>Counter App Application With Redux</h2>
+				<div className='row justify-content-center'>
+					<button className='btn btn-primary col-lg-6 m-2' onClick={() => props.increment(1)}>
+						+
+					</button>
+					{props.data.count > 0 && <h5 className='text-center'>Count: {props.data.count}</h5>}
+					<button className='btn btn-primary col-lg-6 m-2' onClick={() => props.decrement(1)}>
+						-
+					</button>
+				</div>
+			</div>
+		</>
+	)
+}
+
+const mapStateToProps = (state) => ({
+	data: state.counter
+})
+
+const mapDispatchToProps = (dispatch) => ({
+	increment: (int) => dispatch(incrementCounter('INCREMENT', { count: int })),
+	decrement: (int) => dispatch(decrementCounter('DECREMENT', { count: int }))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
