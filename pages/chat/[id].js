@@ -5,13 +5,14 @@ import MainContent from "../../components/mainContent";
 import ChatBox from "../../components/chatBox";
 import ChatInput from "../../components/chatInput";
 import ChatLayout from "../../components/layouts/ChatLayout";
+import { Socket_uri } from "../../utils/request";
 
 const ChatIndex = ({ router }) => {
   const [connection, setConnection] = useState();
   const [userData, setUserData] = useState();
   useEffect(() => {
     const connect = new HubConnectionBuilder()
-      .withUrl("/chatHub")
+      .withUrl(Socket_uri + "/chatSocket")
       .withAutomaticReconnect()
       .build();
     setConnection(connect);

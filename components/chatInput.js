@@ -32,9 +32,9 @@ const ChatInput = ({ connection, chatId }) => {
     connection.send(
       "SendMessage",
       JSON.stringify({
-        message: state.message,
+        msg: state.message,
         chatId,
-        messageId: state.messageId,
+        id: state.messageId,
       })
     );
     ResetInput(e);

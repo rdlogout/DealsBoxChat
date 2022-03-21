@@ -3,7 +3,7 @@ import { MdOutlineFileDownload } from "react-icons/md";
 import { IoMdDocument } from "react-icons/io";
 import { useState } from "react";
 
-const ChatMessage = ({ data, messageDirection, name }) => {
+const ChatMessage = ({ data, messageDirection, sent, name }) => {
   if (!data.content && !data.files?.length > 0) return null;
 
   const RenderFile = ({ x }) => {
@@ -36,11 +36,7 @@ const ChatMessage = ({ data, messageDirection, name }) => {
 
   return (
     <>
-      <div
-        className={`chat-message ${
-          !name ? "in" : messageDirection ? "in" : "message-out"
-        }`}
-      >
+      <div className={`chat-message ${!sent ? "in" : "message-out"}`}>
         <div className="user-image me-3">
           <img src="https://blog.hubspot.com/hubfs/How%20to%20Edit%20%26%20Customize%20User%20Roles%20in%20WordPress.jpeg" />
         </div>

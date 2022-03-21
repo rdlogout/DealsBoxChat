@@ -1,12 +1,16 @@
 import axios from "axios";
 import toast from "react-hot-toast";
+const debug = process.env.NODE_ENV === "development";
+export const Socket_uri = debug
+  ? "https://localhost:5001"
+  : "https://socket.dealsonopenbox.com";
 
 export const GET = async (url, alert = false, msg = "Loading ...") => {
   let data;
   let id = "";
   if (alert) id = toast.loading(msg);
   try {
-    const resp = await axios(url);
+    const resp = await axios(url, { withCredentials: true });
     if (resp.status === 200) data = resp.data;
   } catch (ex) {
     LogError(ex);
@@ -31,7 +35,7 @@ export const POST = async (url, body, alert = true, msg = "Loading ...") => {
   let id = "";
   if (alert) id = toast.loading(msg);
   try {
-    const resp = await axios.post(url, body);
+    const resp = await axios.post(url, body, { withCredentials: true });
     if (resp.status === 200)
       if (alert)
         if (resp.data.status)

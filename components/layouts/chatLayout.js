@@ -26,7 +26,7 @@ const ChatLayout = ({ children }) => {
   //   }, [connection]);
 
   const LoadChatList = () =>
-    axios("/api/home")
+    axios("/home")
       .then(({ data }) => setChatList(data))
       .catch((x) => console.log(x));
 

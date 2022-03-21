@@ -25,7 +25,7 @@ const ChatBox = ({ chatId, connection, userData }) => {
   const LoadData = () => {
     setData();
     if (chatId)
-      axios("/api/home/ChatInfo/" + chatId)
+      axios("/home/" + chatId)
         .then(({ data }) => {
           setData(data);
           setMessages(data.messages.reverse());
@@ -54,7 +54,8 @@ const ChatBox = ({ chatId, connection, userData }) => {
               key={i}
               data={x}
               name={data.users.find((s) => s.id !== x.user)?.name}
-              messageDirection={x.user !== userData?.id}
+              sent={x.user === data.selfId}
+              messageDirection={x.user == data.selfId}
             />
           ))
         ) : (
