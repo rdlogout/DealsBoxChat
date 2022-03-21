@@ -1,19 +1,23 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
-import { Provider } from 'react-redux'
-import { createWrapper } from 'next-redux-wrapper'
-import store from '../redux/store'
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Provider } from "react-redux";
+import { createWrapper } from "next-redux-wrapper";
+import store from "../redux/store";
+import { Base_Uri } from "../utils/static";
+import "../styles/global.scss";
+import axios from "axios";
 
+axios.defaults.baseURL = Base_Uri;
 function MyApp({ Component, pageProps }) {
-	return (
-		<>
-			<Provider store={store}>
-				<Component {...pageProps} />
-			</Provider>
-		</>
-	)
+  return (
+    <>
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
+    </>
+  );
 }
 
 // initialize store and wrapper store
-const makeStore = () => store
-const wrapper = createWrapper(makeStore)
-export default wrapper.withRedux(MyApp)
+const makeStore = () => store;
+const wrapper = createWrapper(makeStore);
+export default wrapper.withRedux(MyApp);

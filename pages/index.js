@@ -1,32 +1,59 @@
-import { connect } from 'react-redux'
-import { incrementCounter, decrementCounter } from '../redux/action/counter/creator'
+import axios from "axios";
+import { useEffect } from "react";
+import { connect } from "react-redux";
+import indexActions from "../redux/actions/indexAction";
+import Link from "next/link";
+import { Col, Row } from "react-bootstrap";
+import { LocalDate } from "../utils/utility";
+const ChatIndex = (props) => {
+  const { loading, chatLists } = props;
+  console.log(props);
+  useEffect(() => {
+    props.loadData();
+  }, []);
 
-const Home = (props) => {
-	return (
-		<>
-			<div className='container mt-4'>
-				<h2 className='text-center'>Counter App Application With Redux</h2>
-				<div className='row justify-content-center'>
-					<button className='btn btn-primary col-lg-6 m-2' onClick={() => props.increment(1)}>
-						+
-					</button>
-					{props.data.count > 0 && <h5 className='text-center'>Count: {props.data.count}</h5>}
-					<button className='btn btn-primary col-lg-6 m-2' onClick={() => props.decrement(1)}>
-						-
-					</button>
-				</div>
-			</div>
-		</>
-	)
-}
+  console.log(props);
 
-const mapStateToProps = (state) => ({
-	data: state.counter
-})
+  return (
+    <div className="chat-list">
+      {loading ? (
+        <p>Loading ...</p>
+      ) : (
+        chatLists?.map((s) => (
+          <Link href={"/" + s.id}>
+            <div role="button">
+              <div className="chat-list-item">
+                <Row>
+                  <Col xs="8">
+                    <p className="fw-600 fs-6 mb-1">{s.title}</p>
+                  </Col>
+                  <Col xs="4">
+                    <span className="font-sm text-grey">
+                      {LocalDate(s.message?.date, "HH:mm A")}
+                    </span>
+                  </Col>
+                  <Col sm="12">
+                    <p className="font-lg mb-0">
+                      {s.message?.content || "Waiting For Messages ..."}
+                    </p>
+                  </Col>
+                </Row>
+              </div>
+            </div>
+          </Link>
+        ))
+      )}
+    </div>
+  );
+};
 
-const mapDispatchToProps = (dispatch) => ({
-	increment: (int) => dispatch(incrementCounter('INCREMENT', { count: int })),
-	decrement: (int) => dispatch(decrementCounter('DECREMENT', { count: int }))
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+// export async function getServerSideProps({ req }) {
+//   const res = await axios.get("", {
+//     headers: {
+//       Cookie: req.headers.cookie,
+//     },
+//   });
+//   const data = await res.data;
+//   return { props: { data } };
+// }
+export default connect((s) => s.index, indexActions)(ChatIndex);

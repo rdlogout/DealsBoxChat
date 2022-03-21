@@ -1,0 +1,144 @@
+$theme-colors: (
+  "primary": #666af6,
+  "secondary": #607196,
+  "blue": #094d92,
+  "success": #02b875,
+  "info": #ff7d50,
+  "white": #ffffff,
+  "warning": #ffbe0b,
+  "danger": #df542e,
+  "light": #f8f8f8,
+  "dark": #001738,
+  "grey": #9b9b9b,
+);
+
+@import "/node_modules/bootstrap/scss/bootstrap.scss";
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@200;300;400;500;600;700;800&display=swap");
+@import "./utility.scss";
+@import "./index.scss";
+@import "./chatid.scss";
+body {
+  font-family: "Overpass", sans-serif;
+  box-sizing: border-box;
+  line-height: 1.5;
+  height: 100%;
+  margin: 0;
+  background-color: #ffbe0b3b;
+}
+.font-nano {
+  font-size: 9px !important;
+}
+a {
+  text-decoration: none;
+}
+svg {
+  font-size: inherit;
+  color: inherit;
+}
+.rounded-8 {
+  border-radius: 8px !important;
+}
+ol,
+ul {
+  list-style: none;
+}
+
+.shimmer-line {
+  height: 10px;
+  margin-top: 20px;
+  background: #777;
+}
+
+.shimmer-line-br {
+  border-radius: 8px;
+}
+
+.shimmer-line-full {
+  width: 100%;
+}
+
+.shimmer-line-80 {
+  width: 80%;
+}
+
+.shimmer-line-60 {
+  width: 60%;
+}
+
+.shimmer-line-40 {
+  width: 40%;
+}
+
+.shimmer-line-20 {
+  width: 20%;
+}
+
+.shimmer-line-10 {
+  width: 10%;
+}
+
+.shimmer-circle {
+  background: #777;
+  border-radius: 50%;
+}
+
+.shimmer-circle-lg {
+  height: 129px;
+  width: 129px;
+}
+
+.shimmer-circle-md {
+  height: 65px;
+  width: 65px;
+}
+
+.shimmer-circle-sm {
+  height: 33px;
+  width: 33px;
+}
+
+.shimmer-circle-x-sm {
+  height: 17px;
+  width: 17px;
+}
+
+.shimmer-wrapper {
+  width: 100%;
+  height: 100%;
+  animation: shimmer-full-view 0.5s forwards
+    cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes shimmer-full-view {
+  0% {
+    background-position: -1000px 0;
+  }
+
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes shimmer-animation {
+  0% {
+    background-position: -1000px 0;
+  }
+
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer-animate {
+  animation: shimmer-animation 2s infinite linear;
+  background: linear-gradient(to right, #eff1f3 4%, #e2e2e2 25%, #eff1f3 36%);
+  background-size: 1000px 100%;
+}
+
+.modal-content {
+  border-radius: 0;
+}
+
+.small-container {
+  max-width: 1130px;
+}
